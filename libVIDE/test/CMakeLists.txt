@@ -1,0 +1,4 @@
+INCLUDE_DIRECTORIES(..)
+LINK_LIBRARIES(vide ${QT_LIBRARIES})
+
+ADD_EXECUTABLE(testEditMode testEditMode.cpp)
