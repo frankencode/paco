@@ -1,0 +1,6 @@
+.DS_Store
+debug
+debug-static
+release
+release-static
+make.conf

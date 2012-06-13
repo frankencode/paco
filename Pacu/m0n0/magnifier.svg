@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16px"
+   height="16px"
+   id="svg2383"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="magnifier.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/Users/frank/work/libftl/Pacu/m0n0/magnifier.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs2385">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 8 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="16 : 8 : 1"
+       inkscape:persp3d-origin="8 : 5.3333333 : 1"
+       id="perspective2391" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.197802"
+     inkscape:cx="-1.6204948"
+     inkscape:cy="13.405941"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     objecttolerance="7"
+     gridtolerance="7"
+     guidetolerance="7"
+     inkscape:snap-global="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="928"
+     inkscape:window-x="1443"
+     inkscape:window-y="22">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2393"
+       visible="true"
+       enabled="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata2388">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       sodipodi:type="arc"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.17909288000000001;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;opacity:1;fill-rule:nonzero"
+       id="path2395"
+       sodipodi:cx="6.4420791"
+       sodipodi:cy="6.5846534"
+       sodipodi:rx="3.0751286"
+       sodipodi:ry="3.0751286"
+       d="M 9.5172076,6.5846534 A 3.0751286,3.0751286 0 1 1 3.3669505,6.5846534 A 3.0751286,3.0751286 0 1 1 9.5172076,6.5846534 z"
+       transform="matrix(1.3606034,0,0,1.3533571,-3.7647731,-3.9250008)" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.6;stroke-linecap:square;stroke-linejoin:miter;marker-start:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 8.9918453,8.8982243 L 11.504455,11.459405"
+       id="path3177"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.03;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.60000001999999997;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4701"
+       sodipodi:cx="1.3064357"
+       sodipodi:cy="-7.4707923"
+       sodipodi:rx="2.2975247"
+       sodipodi:ry="2.2975247"
+       d="M 3.6039604,-7.4707923 A 2.2975247,2.2975247 0 1 1 -0.99108899,-7.4707923 A 2.2975247,2.2975247 0 1 1 3.6039604,-7.4707923 z"
+       transform="matrix(1.4803922,0,0,1.4563026,3.0439331,15.854831)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

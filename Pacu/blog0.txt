@@ -1,0 +1,14 @@
+<h1>Pacu 1.1 Beta and the 'charcoal' highlighting engine</h1>
+
+
+<p>Pacu 1.0 is out now for several months and I had been busy lobbying for money and working on the next version. Thanks for all brave first customers which have seen a value in this very first release. Pacu 1.0 had many issues. The most severe once were broken packages and broken UTF8 file detection. The next time I swear to start numbering with 0.1!
+</p>
+<p>The most frequent feature requested where customizable syntax highlighting and productivity features like auto-completion and snippets. As its always wise to do the more difficult things first, I started to open up the highlighting engine and have it fully user customizable for Pacu 1.1. Actually I believe its the first engine which does support BNF-style executable grammars and does correct color projection of abstract syntax trees in real-time. No tricks or state-based logic, any EBNF can be directly translated into a Pacu grammar.
+</p>
+<p>The highlighting engine now included in Pacu 1.1 is dubbed 'charcoal' and the user customizable part is entirely written using ECMAScript. Big thanks goes out to the creators to QtScript, which never had failed me once (I mean it!). The 'charcoal' itself is OpenSource and you can fetch the latest version from <a href="http://github.com/unclewerner/charcoal">GitHub</a>.
+</p>
+<p>If you like to try out the beta, download one of the packages linked at the bottom of this blog entry. There will be more documentation available on 'charcoal' once Pacu 1.1 got its final finish. If you want to know more, join me on freenode: channel #pacu, my nick ('unclewerner') is online 24/7. 
+</p>
+<a href="https://www.cyblogic.com/en/products/download?filename=pacu/1.1/pacu-1.1-beta-i386.dmg&type=file">pacu-1.1-beta-i386.dmg</a></br>
+<a href="https://www.cyblogic.com/en/products/download?filename=pacu/1.1/pacu-1.1-beta-linux-i386.tar.bz2&type=file">pacu-1.1-beta-linux-i386.tar.bz2</a></br>
+<a href="https://www.cyblogic.com/en/products/download?filename=pacu/1.1/pacu-1.1-beta-linux-x86_64.tar.bz2&type=file">pacu-1.1-beta-linux-x86_64.tar.bz2</a><br/>

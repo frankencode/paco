@@ -1,0 +1,1 @@
+* cursor at end of line becomes invalid, if reducing tab width

@@ -1,0 +1,11 @@
+<% title 'Sample' %>
+<div style="float:left;">
+  Subtle: <%= select_tag :subtle, options_for_select(Page::SUBTLE, @page.subtle) %>
+  <%= observe_field "subtle", :url => subtle_layout_page_path(@page),
+    :frequency => 0.25,
+    :with => "subtle"
+  %>
+</div>
+<% form_tag proceed_subtle_path(@page) do %>
+	<div id="sample_form"><%= render :partial => 'pages/sample_form' %></div>
+<% end %>

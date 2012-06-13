@@ -1,0 +1,17 @@
+diff --git a/src/gui/kernel/qcocoaapplicationdelegate_mac.mm b/src/gui/kernel/qcocoaapplicationdelegate_mac.mm
+index 5dcf613..d24be5b 100644
+--- a/src/gui/kernel/qcocoaapplicationdelegate_mac.mm
++++ b/src/gui/kernel/qcocoaapplicationdelegate_mac.mm
+@@ -265,6 +265,12 @@ static void cleanupCocoaApplicationDelegate()
+     onApplicationChangedActivation(false);
+ }
+ 
++- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
++{
++   onApplicationChangedActivation(true);
++   return NO;
++}
++
+ - (void)applicationDidChangeScreenParameters:(NSNotification *)notification
+ {
+     Q_UNUSED(notification);

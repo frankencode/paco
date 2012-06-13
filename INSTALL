@@ -1,0 +1,4 @@
+Enter the Pacu subdirectory and issue 'build.sh'.
+Check out the build_options_*.sh for your platform.
+By default intermediate build files are put into $HOME/tmp,
+but the final packages lands in your source.

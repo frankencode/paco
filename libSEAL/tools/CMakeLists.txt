@@ -1,0 +1,4 @@
+LINK_LIBRARIES(seal)
+INCLUDE_DIRECTORIES(..)
+
+ADD_EXECUTABLE(embed embed.cpp)

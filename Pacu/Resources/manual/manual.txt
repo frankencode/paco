@@ -1,0 +1,379 @@
+Pacu User's Manual
+==================
+:product: Pacu
+:revision: 1.2.4
+
+++++
+<img src="logo.png" width="64px" height="64px" class="logo" alt=""/>
+++++
+
+Tips and Tricks
+---------------
+
+TIP: You can use {product}'s builtin HTML export to highlight code for your blog. {product} generates static HTML with minimal use
+of HTML features and you should be able to paste the HTML code into you favourite blog engine (without getting tags filtered).
+
+TIP: There is a converter for Textmate themes available here: http://www.cyblogic.com/en/charcoal/theme/converter .
+Simply paste the tmTheme file into the form and save the resulting mytheme.js in /Where/Is/{product}/shared/charcoal/themes (Linux) or
+/Applications/{product}.app/Contents/Resources/charcoal/themes (Mac). Restart {product} and enjoy!
+
+TIP: If you work regularly on remote machines using the same NFS mounts and paths you may want to automatically open files while being logged-in remotely. In this case add the following line to your remote \~/.profile or ~/.bash_profile. The bash and tcsh shells execute this command each time they generate a prompt, which amoung other things helps {product} to detect job start and termination.
+-------
+export PROMPT_COMMAND='printf "\033]7;$USER@`hostname -f`:$PWD\007"'
+-------
+
+TIP: You can open files from {product}'s terminal programmatically. Try for instance:
+-------
+touch test.txt && printf "\033]9;$PWD/test.txt\007"
+-------
+
+TIP: The Linux binaries are linked with RUNPATH set to the bundled Qt libraries. If you like to use your own Qt libraries you can overload the run path: +$ LD_LIBRARY_PATH=/usr/lib:/usr/lib64 i686/Pacu+ .
+
+
+Keyboard Shortcuts
+------------------
+
+++++
+<div class="sideBySide">
+++++
+
+.File{nbsp}Shortcuts
+[width="15%",options="header"]
+|=======================
+|Keys |Description
+|⌘N   |New
+|⌘O   |Open
+|⌘.   |Working{nbsp}Directory
+|⌘S   |Save
+|⇧⌘S  |Save{nbsp}As
+|⌥⌘S  |Save{nbsp}All
+|⌘R   |Reload
+|⌘P   |Print
+|⌘W   |Close
+|⌥⌘W  |Close{nbsp}All
+|⌘Q   |Quit
+|=======================
+
+.Edit{nbsp}Shortcuts
+[width="15%",options="header"]
+|=======================
+| Keys | Description
+| ⌘Z   | Undo
+| ⇧⌘Z  | Redo
+| ⌘C   | Copy
+| ⌘X   | Cut
+| ⌘V   | Paste
+| ⌘K   | Select{nbsp}Word
+| ⌘L   | Select{nbsp}Line
+| ⌘A   | Select{nbsp}All
+| ⌘G   | Goto{nbsp}Line
+|=======================
+
+.View{nbsp}Shortcuts
+[width="15%",options="header"]
+|=======================
+| Keys | Description
+| ⌥⌘M  | Fullscreen{nbsp}Mode
+| ⌘M   | Window{nbsp}Maximize
+| ⌘B   | File{nbsp}Browser{nbsp}Show
+| ⇧⌘B  | File{nbsp}Browser{nbsp}Hide
+| ⌘E   | Editor{nbsp}Show
+| ⇧⌘E  | Editor{nbsp}Hide
+| ⌘↵   | Terminal{nbsp}Show
+| ⇧⌘↵  | Terminal{nbsp}Hide
+| ⌘F   | Find/Replace{nbsp}Show
+| ⇧⌘F  | Find/Replace{nbsp}Hide
+| ⌥⌘E  | Editor{nbsp}Maximize
+| ⌥⌘↵  | Terminal{nbsp}Maximize
+| ⌘,   | Preferences
+|=======================
+
+.Navigation{nbsp}Shortcuts
+[width="15%",options="header"]
+|=======================
+| Keys | Description
+| ⌥⌘O  | Quick{nbsp}File{nbsp}Open
+| ⌘T   | Open{nbsp}Tab
+| ⇧⌘T  | Close{nbsp}Tab
+| ⌘←   | Previous{nbsp}Tab
+| ⌘→   | Next{nbsp}Tab
+| ⌥⌘←  | Drag{nbsp}Tab{nbsp}Left
+| ⌥⌘→  | Drag{nbsp}Tab{nbsp}Right
+| ⌥↵   | Open{nbsp}Link
+| ⌥↖   | First{nbsp}Link
+| ⌥↘   | Last{nbsp}Link
+| ⌥⇞   | Previous{nbsp}Link
+| ⌥⇟   | Next{nbsp}Link
+|=======================
+
+.Command{nbsp}Shortcuts
+[width="15%",options="header"]
+|=======================
+| Keys | Description
+| ⌥⌘,  | Setup
+|=======================
+
+.Emacs{nbsp}Shortcuts
+[width="15%",options="header"]
+|=======================
+| Keys | Description
+| ⌃P   | Previous{nbsp}Line
+| ⌃N   | Next{nbsp}Line
+| ⌃B   | Step{nbsp}Backward
+| ⌃F   | Step{nbsp}Forward
+| ⌃A   | Begin{nbsp}of{nbsp}Line
+| ⌃E   | End{nbsp}of{nbsp}Line
+| ⌃V   | Next{nbsp}Page
+|=======================
+
+++++
+<br style="clear:left; line-height:0;"/>
+</div> <!-- class="sideBySide" -->
+++++
+
+.Synopsis
+[width="15%",options="header"]
+|=======================
+| Key | Description
+| ⌃   | Ctrl
+| ⌥   | Alt
+| ⌘   | Ctrl{nbsp}on{nbsp}Linux/X11{nbsp}and Cmd{nbsp}on{nbsp}OS{nbsp}X
+| ⇧   | Shift
+| ↖   | Home
+| ↘   | End
+| ⇞   | PgUp
+| ⇟   | PgDown
+|=======================
+
+User Defined Commands
+---------------------
+
+User defined commands allow to customize {product}, providing keyboard shortcuts and menu bar icons for repeated tasks.
+There are two different types of commands: URLs and shell macros.
+The command text can contain substitution variables, which refer to internal states of {product}.
+
+.Substituion Variables
+[width="50%",cols="1,10",options="header"]
+|=======================================
+| Variable       | Description
+| $DIRPATH       | directory path of current file 
+| $DIRNAME       | directory name of current file
+| $FILEPATH      | file path of current file
+| $FILENAME      | file name of current file (equals $FILEID.$FILEEXT)
+| $FILEID        | file name without suffix of current file
+| $FILEEXT       | file extension of current file
+| $TEXT          | selected text
+| $WORD          | word under cursor
+| $CURSOR_LINE   | current line of cursor
+| $CURSOR_COLUMN | current column of cursor
+|=======================================
+
+Built-in Terminal Emulation
+---------------------------
+
+Overview
+~~~~~~~~
+
+{product} provides a xterm compliant terminal emulation. The emulator automatically
+detects a variety of different compiler and log messages to speed up your workflow.
+Clicking on a message opens up the referenced files. {product} will look-up file names in the
+current working directory and the bookmarked directories. You can also navigate compiler messages
+using keyboard shortcuts (Navigation / First Link, Next Link, etc.).
+
+.Message format for link detection
+--------------------------------------
+<file name>:<line>:<column>: <message>
+--------------------------------------
+
+Historically terminal emulations were designed to emulate physical terminal devices,
+like for instance the widespread http://en.wikipedia.org/wiki/VT100[DEC VT100] .
+Physical terminals gone out of production long ago though and therefore {product} is not going to
+emulate their arcane circuits, but instead targets best compatibility with the different
+xterm clones (e.g.: xterm, aterm) still in use.
+Setting the TERM environment variable to 'xterm-color' will give best results.
+
+{product}'s terminal supports two different display modes: fullscreen and contiguous mode.
+The default mode is the contiguous mode. The fullscreen mode is triggered by a special control
+sequence which is most often invoked by Curses based applications. When entering fullscreen mode
+{product} switches to an ANSI color palette for compatibility reasons (background black).
+The endless log will be disabled in fullscreen mode. Only in contiguous mode references to files are detected.
+
+The terminal emulation implements nearly 99% of all control sequences used by Curses based
+applications on Linux and Mac{nbsp}OS{nbsp}X. The overall logic is pretty much derived from
+different terminal device which in turn were derived from electrified type-writers.
+{product}'s terminal tries to keep the best alive of the old-school type-writer logic.
+
+TIP: Files can be opened from the built-in terminal by writing a special control sequence: `$ printf "\033]9;<file path>\007"`
+
+Control Codes
+~~~~~~~~~~~~~
+
+.Window Coordinate System
+--------------------------------------
+   (1,1)     COLUMNS
+      +--------->
+      |
+      |
+      |
+LINES v
+--------------------------------------
+
+ * first dimension: row (line)
+ * second dimension: column
+ * environment variables: LINES, COLUMNS
+   ** terminal sends signal SIGWINCH to the foreground process group when window is resized
+   ** the shell should update the environment variables each time it receives SIGWINCH
+
+.Control Characters
+[width="70%",cols="1,10",options="header"]
+|=======================
+| Char | Description
+|   7  | Bell
+|   8  | Backspace (step left one column)
+|   9  | Horizontal tabulator (step right to the next column, which is a multiple of 8)
+|  10  | Line feed (step down one line)
+|  13  | Carriage return (return to column 1)
+|=======================
+
+.Control Sequences
+[cols="1,3",options="header"]
+|=======================
+| Sequence                                                  | Description
+| ++\033 [ m++                                              | reset text attributes
+| ++\033 [ ++_a~0~_++ ; ++_a~1~_++ ; ... ; ++_a~n-1~_++ m++ | set text attributes (see below for details)
+| ++\033 [ ++_row_++ ; ++_column_++ H++                     | move cursor to (_row_, _column_)
+| ++\033 [ H++                                              | move cursor to (1, 1)
+| ++\033 [ ++_delta_++ A \| B \| C \| D++                   | step cursor (+A+: down, +B+: up, +C+:right, +D+: left)
+| ++\033 [ A \| B \| C \| D++                               | step cursor, _delta_ = 1
+| ++\033 [ J++                                              | clear window from cursor to bottom right corner
+| ++\033 [ 2 J++                                            | clear entire text buffer
+| ++\033 [ K++                                              | erase line from cursor to end of line
+| ++\033 [ ++_where_++ K++                                  | erase line from start of line to cursor (_where_ = 1) or erase entire line (_where_ = 2)
+| ++\033 [ ++_n_++ L++                                      | insert _n_ lines
+| ++\033 [ ++L                                              | insert line (_n_ = 1)
+| ++\033 [ ++_n_++ M++                                      | remove _n_ lines
+| ++\033 [ M++                                              | remove line (_n_ = 1)
+| ++\033 [ ++_n_++ P++                                      | remove _n_ characters at cursor pos
+| ++\033 [ P++                                              | remove single character at cursor pos
+| ++\033 [ ++_y~a~_++ ; ++_y~b~_++ r++                      | set scroll range to [_y~a~_, _y~b~_]
+| ++\033 [ r++                                              | reset scroll range to entire window
+| ++\033 [ ? 47 h \| l++                                    | enter/exit fullscreen mode
+| ++\033 [ ? 1 h \| l++                                     | enter/exit application mode
+| ++\033 [ ? 111h \| l++                                    | enable/disable automatically opening of next message
+| ++\033 [ ? 1000 h \| l++                                  | enable/disable mouse button events
+| ++\033 [ ? 1002 h \| l++                                  | enable/disable mouse button and move events
+| ++\033 ] 0 ; ++_title_++ \007++                           | set window title
+| ++\033 ] 7 ; ++_user_++ @ ++_host_++ : ++_path_++ \007++  | job info, needs to be generated from $PROMPT_COMMAND
+| ++\033 ] 9 ; ++_path_++ \007 ++                           | open file
+| ++\033 M++                                                | reverse line feed
+| ++\033 7 \| 8++                                           | save/restore state (cursor pos, text attributes)
+|=======================
+
+++++
+<div class="sideBySide">
+++++
+.Text Attributes
+[width="15%",options="header"]
+|=======================
+| _a~i~_ | Description
+|      0 | reset
+|      1 | bright
+|      4 | underline
+|      7 | inverted
+|  30-37 | foreground{nbsp}color
+|     39 | default{nbsp}foreground{nbsp}color
+|  40-47 | background{nbsp}color
+|     49 | default{nbsp}background{nbsp}color
+|=======================
+
+.Color{nbsp}Codes
+[width="15%",options="header"]
+|=======================
+| Code | Color
+| 0    | black
+| 1    | red
+| 2    | green
+| 3    | yellow
+| 4    | blue
+| 5    | magenta
+| 6    | cyan
+| 7    | white
+|=======================
+++++
+<br style="clear:left; line-height:0;"/>
+</div> <!-- class="sideBySide" -->
+++++
+
+.Input Events
+[options="header",cols="1,1,10"]
+|=======================
+| Event            | Sequence                                                                 | Description
+| Ctrl-R           | CREPRINT                                                                 | defined in _/usr/include/sys/ttydefaults.h_
+| Ctrl-S           | CSTOP                                                                    |
+| Cursor{nbsp}Key  | ++\033{nbsp}[{nbsp}1{nbsp};{nbsp}++_m_++{nbsp};{nbsp}++_c_{nbsp}         | _m_ = 0x21 + <modifier flags> (see below), _c_ = <cursor key code> (see below)
+|                  | ++\033{nbsp}[{nbsp}++_c_                                                 | _c_ = <cursor key code> (see below)
+|                  | ++\033{nbsp}0{nbsp}1{nbsp};{nbsp}++_m_++{nbsp};{nbsp}++_c_               | if application mode is enabled
+|                  | ++\033{nbsp}0{nbsp}++_c_                                                 | if application mode is enabled
+| Page{nbsp}Up     | ++\033{nbsp}[{nbsp}5{nbsp}~++                                            |
+| Page{nbsp}Down   | ++\033{nbsp}[{nbsp}6{nbsp}~++                                            |
+| Insert           | ++\033{nbsp}[{nbsp}2{nbsp}~++                                            |
+| Delete           | ++\033{nbsp}[{nbsp}3{nbsp}~++                                            |
+| Backspace        | ++\010++                                                                 |
+| F1               | ++\033{nbsp}[{nbsp}11{nbsp}~++                                           |
+| F2               | ++\033{nbsp}[{nbsp}12{nbsp}~++                                           |
+| F3               | ++\033{nbsp}[{nbsp}13{nbsp}~++                                           |
+| F4               | ++\033{nbsp}[{nbsp}14{nbsp}~++                                           |
+| F5               | ++\033{nbsp}[{nbsp}15{nbsp}~++                                           |
+| F6               | ++\033{nbsp}[{nbsp}17{nbsp}~++                                           |
+| F7               | ++\033{nbsp}[{nbsp}18{nbsp}~++                                           |
+| F8               | ++\033{nbsp}[{nbsp}19{nbsp}~++                                           |
+| F9               | ++\033{nbsp}[{nbsp}20{nbsp}~++                                           |
+| F10              | ++\033{nbsp}[{nbsp}21{nbsp}~++                                           |
+| F11              | ++\033{nbsp}[{nbsp}23{nbsp}~++                                           |
+| F12              | ++\033{nbsp}[{nbsp}24{nbsp}~++                                           |
+| Escape           | ++\033 \033++                                                            |
+| Mouse{nbsp}Event | ++\033{nbsp}[{nbsp}M{nbsp}++_c~b~_++{nbsp}++_c~x~_++{nbsp}++_c~y~_{nbsp} | _c~b~_, _c~x~_, _c~y~_ = 0x20 + <mouse event code> (see below)
+|=======================
+
+++++
+<div class="sideBySide">
+++++
+
+.Modifier{nbsp}Flags
+[width="20%",options="header"]
+|=======================
+| Modifier | Flag
+| none     | 0
+| Shift    | 1
+| Alt      | 2
+| Ctrl     | 4
+|=======================
+
+.Cursor{nbsp}Key{nbsp}Code
+[width="20%",options="header"]
+|=======================
+| Key   | Char{nbsp}Code
+| Up    | _A_
+| Down  | _B_
+| Right | _C_
+| Left  | _D_
+| Home  | _H_
+| End   | _F_
+|=======================
+
+.Mouse{nbsp}Event{nbsp}Code
+[width="20%",options="header"]
+|=======================
+| Flag | Description
+| 0    | left{nbsp}button
+| 1    | middle{nbsp}button
+| 2    | right{nbsp}button
+| 4    | shift{nbsp}modifier
+| 8    | alt{nbsp}modifier
+| 16   | control{nbsp}modifier
+|=======================
+
+++++
+<br style="clear:left; line-height:0;"/>
+</div> <!-- class="sideBySide" -->
+++++

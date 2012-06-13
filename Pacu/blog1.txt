@@ -1,0 +1,50 @@
+<p>
+Being worried for some time already about the subtle differences in how my applications render fonts
+compared to more native Mac applications I decided to spend some time to figure out, where the
+differences stem from.
+</p>
+<p>
+I came first to notice the fine differences when I accidentally hold the "Auto" button on my LCD
+pressed for a longer period while moving it around on my workplace.
+I found out, that the "Auto" button makes the screen to synchronize against the RGB input signal
+and in my case having 4 different machines attached by a monitor switch I have to press it each
+time I switch between the machines. Without this manual calibration I never noticed the difference
+between subpixel anti-aliased and graylevel-only anti-aliased text. It turned out that on my
+Macbook subpixel anti-aliasing is activated by default (using Tiger), while on my Mac Mini (Snow Leopard)
+it is disabled by default. Actually Apple even decided to disable the possibility to enable subpixel AA
+entirely for my 22 inch LCD and I couldn't enabled it in "System Preferences".
+</p>
+<p>
+Digging a bit I found several sites provided the following command sequence to enable subpixel AA on Snow Leopard,
+no matter which screen is attached:
+<pre>
+defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+</pre>
+</p>
+<p>
+Getting both things right (enabling subpixel AA and synchronizing the screen to analog RGB signal) made my reading
+experience on OSX improve greatly. The fonts look soft, but not to blurry and not to sharp like on Linux/X11,
+where the higher contrast hurts my eyes.
+</p>
+<p>
+But that's only half of the story. Some applications seem to show subpixel anti-aliased glyphs, some show only
+graylevel antialiased glyphs and some mix both. Taking a small read on <a href="http://en.wikipedia.org/wiki/Subpixel_rendering">wikipedia</a> explains best what happens. Some applications (like Pacu &lt;1.1) do alpha-composition
+which prevents them to show subpixel anti-aliased glyphs. Because subpixeling means to generate graylevels
+by combining adjacent color elements of different pixels. Therefore you need to have a definite gray level value
+in advance to generate the subpixel pattern. Alternatively there may be a possibility to use subpixel resolution
+pixmaps in the alpha-composition process, but the costs for doing so seem prohibitive.
+Apple's "Pages" is othen speculated to have hampered font smoothening because of the alpha composition
+mechanism used. A more detailed discussion can be found <a href="http://pagesfaq.blogspot.com/2008/01/why-do-pages-characters-look-blurry.html">here</a>
+</p>
+<p>
+The following screenshot shows a piece of text from Pacu 1.1:
+<br />
+<br />
+<img src="/data/attachments/original/subpixels.png" width="561px" height="59px" />
+<br />
+<br />
+As you can see the full red shows no visible subpixel anti-aliasing, while the black and dark blue glyphs
+are subpixel anti-aliased. Obviously it is only possible to subpixelate colors which are mixed from all three color components
+in a sensible amount. A full red can't be subpixel antialiased, while a 50% blue can spread on neighboring pixels, because its green
+and red values aren't zero.
+</p>

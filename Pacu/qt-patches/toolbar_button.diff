@@ -1,0 +1,92 @@
+commit 5afb26bcdc5144951281c11d077d0786185b95bd
+Author: Frank Mertens <frank@cyblogic.de>
+Date:   Wed Oct 13 16:05:40 2010 +0200
+
+    Window tool bar button fix.
+
+diff --git a/src/gui/kernel/qcocoawindowdelegate_mac.mm b/src/gui/kernel/qcocoawindowdelegate_mac.mm
+index 2b9cf85..ffba6c2 100644
+--- a/src/gui/kernel/qcocoawindowdelegate_mac.mm
++++ b/src/gui/kernel/qcocoawindowdelegate_mac.mm
+@@ -394,5 +394,25 @@ static void cleanupCocoaWindowDelegate()
+     }
+     return NO;
+ }
++
++- (void)syncContentViewFrame: (NSNotification *)notification
++{
++    NSView *cView = [notification object];
++    if (cView) {
++        NSWindow *window = [cView window];
++        QWidget *qwidget = m_windowHash->value(window);
++        if (qwidget) {
++            QWidgetData *widgetData = qt_qwidget_data(qwidget);
++            NSRect rect = [cView frame];
++            const QSize newSize(rect.size.width, rect.size.height);
++            const QSize &oldSize = widgetData->crect.size();
++            if (newSize != oldSize) {
++                [self syncSizeForWidget:qwidget toSize:newSize fromSize:oldSize];
++            }
++        }
++
++    }
++}
++
+ @end
+ #endif// QT_MAC_USE_COCOA
+diff --git a/src/gui/kernel/qcocoawindowdelegate_mac_p.h b/src/gui/kernel/qcocoawindowdelegate_mac_p.h
+index de9c946..2ca9b13 100644
+--- a/src/gui/kernel/qcocoawindowdelegate_mac_p.h
++++ b/src/gui/kernel/qcocoawindowdelegate_mac_p.h
+@@ -105,5 +105,6 @@ QT_FORWARD_DECLARE_CLASS(QWidgetData)
+ - (NSSize)closestAcceptableSizeForWidget:(QWidget *)qwidget
+         window:(NSWindow *)window withNewSize:(NSSize)proposedSize;
+ - (QWidget *)qt_qwidgetForWindow:(NSWindow *)window;
++- (void)syncContentViewFrame: (NSNotification *)notification;
+ @end
+ #endif
+diff --git a/src/gui/widgets/qmainwindowlayout_mac.mm b/src/gui/widgets/qmainwindowlayout_mac.mm
+index b8cef93..1bfc746 100644
+--- a/src/gui/widgets/qmainwindowlayout_mac.mm
++++ b/src/gui/widgets/qmainwindowlayout_mac.mm
+@@ -48,6 +48,7 @@
+ #include <Carbon/Carbon.h>
+ #else
+ #include <private/qcocoatoolbardelegate_mac_p.h>
++#import  <private/qcocoawindowdelegate_mac_p.h>
+ #endif
+ 
+ QT_BEGIN_NAMESPACE
+@@ -337,6 +338,17 @@ void QMainWindowLayout::updateHIToolBarStatus()
+ #endif
+ 
+     layoutState.mainWindow->setUpdatesEnabled(false);  // reduces a little bit of flicker, not all though
++#if defined(QT_MAC_USE_COCOA)
++    QMacCocoaAutoReleasePool pool;
++    NSView *cView = [qt_mac_window_for(layoutState.mainWindow) contentView];
++    if (useMacToolbar) {
++        [cView setPostsFrameChangedNotifications:YES];
++        [[NSNotificationCenter defaultCenter] addObserver: [QT_MANGLE_NAMESPACE(QCocoaWindowDelegate) sharedDelegate]
++                                                 selector: @selector(syncContentViewFrame:)
++                                                     name: NSViewFrameDidChangeNotification
++                                                   object: cView];
++    }
++#endif
+     if (!useMacToolbar) {
+         macWindowToolbarShow(layoutState.mainWindow, false);
+         // Move everything out of the HIToolbar into the main toolbar.
+@@ -356,6 +368,14 @@ void QMainWindowLayout::updateHIToolBarStatus()
+         }
+         syncUnifiedToolbarVisibility();
+     }
++#if defined(QT_MAC_USE_COCOA)
++    if (!useMacToolbar) {
++        [cView setPostsFrameChangedNotifications:NO];
++        [[NSNotificationCenter defaultCenter] removeObserver: [QT_MANGLE_NAMESPACE(QCocoaWindowDelegate) sharedDelegate]
++                                                        name: NSViewFrameDidChangeNotification
++                                                      object: cView];
++    }
++#endif
+     layoutState.mainWindow->setUpdatesEnabled(true);
+ }
+ 

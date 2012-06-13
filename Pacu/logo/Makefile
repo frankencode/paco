@@ -1,0 +1,8 @@
+all:
+	$(MAKE) -C 16x16
+	$(MAKE) -C 24x24
+	$(MAKE) -C 32x32
+	$(MAKE) -C 64x64
+	$(MAKE) -C 128x128
+	$(MAKE) -C 256x256
+	$(MAKE) -C 512x512

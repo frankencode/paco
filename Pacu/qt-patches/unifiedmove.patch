@@ -1,0 +1,51 @@
+diff --git a/src/gui/widgets/qtoolbar.cpp b/src/gui/widgets/qtoolbar.cpp
+index 7ed27ea..43a7ddc 100644
+--- a/src/gui/widgets/qtoolbar.cpp
++++ b/src/gui/widgets/qtoolbar.cpp
+@@ -285,7 +285,14 @@ bool QToolBarPrivate::mousePressEvent(QMouseEvent *event)
+                     && mainWindow->unifiedTitleAndToolBarOnMac()
+                     && q->childAt(event->pos()) == 0) {
+                 macWindowDragging = true;
+-                macWindowDragPressPosition = event->pos();
++                macWindowDragStartPos = q->window()->mapToGlobal(QPoint(0, 0));
++                macWindowDragPressPosition = event->globalPos();
++                #ifdef QT_MAC_USE_COCOA
++                // workarond HACK, to prevent QWidget::move() to get it wrong the first time
++                QSize inside = mainWindow->geometry().size();
++                QSize outside = mainWindow->frameGeometry().size();
++                macWindowDragStartPos += QPoint(inside.width() - outside.width(), inside.height() - outside.height());
++                #endif
+                 return true;
+             }
+         }
+@@ -313,7 +320,6 @@ bool QToolBarPrivate::mouseReleaseEvent(QMouseEvent*)
+         if (!macWindowDragging)
+             return false;
+         macWindowDragging = false;
+-        macWindowDragPressPosition = QPoint();
+         return true;
+ #endif
+         return false;
+@@ -329,8 +335,8 @@ bool QToolBarPrivate::mouseMoveEvent(QMouseEvent *event)
+         if (!macWindowDragging)
+             return false;
+         QWidget *w = q->window();
+-        const QPoint delta = event->pos() - macWindowDragPressPosition;
+-        w->move(w->pos() + delta);
++        const QPoint delta = event->globalPos() - macWindowDragPressPosition;
++        w->move(macWindowDragStartPos + delta);
+         return true;
+ #endif
+         return false;
+diff --git a/src/gui/widgets/qtoolbar_p.h b/src/gui/widgets/qtoolbar_p.h
+index 9f9e16f..211fabb 100644
+--- a/src/gui/widgets/qtoolbar_p.h
++++ b/src/gui/widgets/qtoolbar_p.h
+@@ -110,6 +110,7 @@ public:
+ #ifdef Q_WS_MAC
+     bool macWindowDragging;
+     QPoint macWindowDragPressPosition;
++    QPoint macWindowDragStartPos;
+ #endif
+ 
+     bool mousePressEvent(QMouseEvent *e);

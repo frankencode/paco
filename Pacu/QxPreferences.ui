@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QxPreferences</class>
+ <widget class="QWidget" name="QxPreferences">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>524</width>
+    <height>390</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Preferences</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabs_">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="usesScrollButtons">
+      <bool>false</bool>
+     </property>
+     <widget class="QWidget" name="editorTab_">
+      <attribute name="title">
+       <string>Editor</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_3">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::FieldsStayAtSizeHint</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Font</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QFontComboBox" name="editorFont_">
+         <property name="writingSystem">
+          <enum>QFontDatabase::Any</enum>
+         </property>
+         <property name="fontFilters">
+          <set>QFontComboBox::AllFonts</set>
+         </property>
+         <property name="currentFont">
+          <font>
+           <family>Helvetica</family>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Font size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="editorFontSize_"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="editorFontAntialiasing_">
+         <property name="text">
+          <string>Font antialiasing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>Line spacing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="editorLineSpacing_"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="editorShowWhitespace_">
+         <property name="text">
+          <string>Show whitespace</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="editorShowLineNumbers_">
+         <property name="text">
+          <string>Show line numbers</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>Indent mode</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="editorAutoIndent_">
+         <property name="text">
+          <string>Auto indent</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QRadioButton" name="editorTabIndentMode_">
+         <property name="text">
+          <string>Tabular characters (code 9)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QRadioButton" name="editorSpaceIndentMode_">
+         <property name="text">
+          <string>Space characters (code 32)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Tabulator width</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QSpinBox" name="editorTabWidth_"/>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Indent width</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QSpinBox" name="editorIndentWidth_"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="printingTab_">
+      <attribute name="title">
+       <string>Printing</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_5">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::ExpandingFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>Font</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QFontComboBox" name="printingFont_">
+         <property name="writingSystem">
+          <enum>QFontDatabase::Any</enum>
+         </property>
+         <property name="fontFilters">
+          <set>QFontComboBox::AllFonts</set>
+         </property>
+         <property name="currentFont">
+          <font>
+           <family>Helvetica</family>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>Font size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="printingFontSize_"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="printingFontAntialiasing_">
+         <property name="text">
+          <string>Font antialiasing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>Line spacing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="printingLineSpacing_"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="printingShowWhitespace_">
+         <property name="text">
+          <string>Show whitespace</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QCheckBox" name="printingShowLineNumbers_">
+         <property name="text">
+          <string>Show line numbers</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QCheckBox" name="printingPageBorder_">
+         <property name="text">
+          <string>Page border</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QCheckBox" name="printingPageHeader_">
+         <property name="text">
+          <string>Page header</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="terminalTab_">
+      <attribute name="title">
+       <string>Terminal</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_2">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::FieldsStayAtSizeHint</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Font</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QFontComboBox" name="terminalFont_">
+         <property name="writingSystem">
+          <enum>QFontDatabase::Any</enum>
+         </property>
+         <property name="fontFilters">
+          <set>QFontComboBox::AllFonts</set>
+         </property>
+         <property name="currentFont">
+          <font>
+           <family>Helvetica</family>
+          </font>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Font size</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QSpinBox" name="terminalFontSize_"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="terminalFontAntialiasing_">
+         <property name="text">
+          <string>Font antialiasing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Line spacing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="terminalLineSpacing_"/>
+       </item>
+       <item row="4" column="1">
+        <widget class="QCheckBox" name="terminalEndlessLogging_">
+         <property name="text">
+          <string>Endless logging</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Number of lines</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="terminalNumberOfLines_"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>Color palette</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="terminalPalette_"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="themesTab_">
+      <attribute name="title">
+       <string>Theme</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QListView" name="themesView_"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="commandsTab_">
+      <attribute name="title">
+       <string>Commands</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QTreeView" name="commandsView_">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Lucida Grande</family>
+          </font>
+         </property>
+         <property name="focusPolicy">
+          <enum>Qt::WheelFocus</enum>
+         </property>
+         <property name="rootIsDecorated">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>1</number>
+         </property>
+         <item>
+          <widget class="QToolButton" name="commandsAdd_">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Add</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="commandsDel_">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Del</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="commandsEdit_">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Edit</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="configTab_">
+      <attribute name="title">
+       <string>Import/Export</string>
+      </attribute>
+      <layout class="QFormLayout" name="formLayout_4">
+       <property name="fieldGrowthPolicy">
+        <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Preferences included:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QCheckBox" name="configEditor_">
+         <property name="text">
+          <string>Editor</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QCheckBox" name="configPrinting_">
+         <property name="text">
+          <string>Printing</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QCheckBox" name="configTerminal_">
+         <property name="text">
+          <string>Terminal</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="configCommands_">
+         <property name="text">
+          <string>Commands</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="configImport_">
+           <property name="text">
+            <string>Import</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="configExport_">
+           <property name="text">
+            <string>Export</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

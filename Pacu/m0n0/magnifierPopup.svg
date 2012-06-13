@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="20"
+   height="16"
+   id="svg2383"
+   sodipodi:version="0.32"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="magnifierPopup.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/Users/frank/work/libftl/Pacu/m0n0/magnifier.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   version="1.1">
+  <defs
+     id="defs2385">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 8 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="16 : 8 : 1"
+       inkscape:persp3d-origin="8 : 5.3333333 : 1"
+       id="perspective2391" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="44.395604"
+     inkscape:cx="12.38391"
+     inkscape:cy="8.1545858"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:snap-global="true"
+     inkscape:window-width="1680"
+     inkscape:window-height="937"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2393"
+       visible="true"
+       enabled="true"
+       empspacing="1"
+       snapvisiblegridlinesonly="true"
+       spacingx="1px" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata2388">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       sodipodi:type="arc"
+       style="fill:none;stroke:#000000;stroke-width:1.17909288;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path2395"
+       sodipodi:cx="6.4420791"
+       sodipodi:cy="6.5846534"
+       sodipodi:rx="3.0751286"
+       sodipodi:ry="3.0751286"
+       d="m 9.5172076,6.5846534 a 3.0751286,3.0751286 0 1 1 -6.1502571,0 3.0751286,3.0751286 0 1 1 6.1502571,0 z"
+       transform="matrix(1.3606034,0,0,1.3533571,-3.7647731,-3.9250008)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.60000002;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-start:none"
+       d="M 8.9918453,8.8982243 11.504455,11.459405"
+       id="path3177"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.02999998;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="path4701"
+       sodipodi:cx="1.3064357"
+       sodipodi:cy="-7.4707923"
+       sodipodi:rx="2.2975247"
+       sodipodi:ry="2.2975247"
+       d="m 3.6039604,-7.4707923 a 2.2975247,2.2975247 0 1 1 -4.59504939,0 2.2975247,2.2975247 0 1 1 4.59504939,0 z"
+       transform="matrix(1.4803922,0,0,1.4563026,3.0439331,15.854831)"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       d="M 13,4 15.481931,8 18,4 13,4 z"
+       id="path2837"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

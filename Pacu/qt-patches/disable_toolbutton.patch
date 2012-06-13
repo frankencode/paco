@@ -1,0 +1,13 @@
+diff --git a/src/gui/kernel/qt_cocoa_helpers_mac.mm b/src/gui/kernel/qt_cocoa_helpers_mac.mm
+index 8cef03c..cf38f09 100644
+--- a/src/gui/kernel/qt_cocoa_helpers_mac.mm
++++ b/src/gui/kernel/qt_cocoa_helpers_mac.mm
+@@ -1280,7 +1280,7 @@ void qt_syncCocoaTitleBarButtons(OSWindowRef window, QWidget *widgetForWindow)
+                              || flags & Qt::WindowCloseButtonHint)) == 0;
+     [btn setEnabled:go];
+ 
+-    [window setShowsToolbarButton:uint(flags & Qt::MacWindowToolBarButtonHint) != 0];
++    [window setShowsToolbarButton:NO /*uint(flags & Qt::MacWindowToolBarButtonHint) != 0*/];
+ }
+ 
+ // Carbon: Make sure you call QDEndContext on the context when done with it.

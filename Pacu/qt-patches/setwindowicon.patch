@@ -1,0 +1,13 @@
+diff --git a/src/gui/kernel/qapplication_mac.mm b/src/gui/kernel/qapplication_mac.mm
+index 321492d..d7abb93 100644
+--- a/src/gui/kernel/qapplication_mac.mm
++++ b/src/gui/kernel/qapplication_mac.mm
+@@ -413,7 +413,7 @@ static short qt_mac_window_at(int x, int y, QWidget **w=0)
+ 
+ #endif
+ 
+-void qt_mac_set_app_icon(const QPixmap &pixmap)
++Q_GUI_EXPORT void qt_mac_set_app_icon(const QPixmap &pixmap)
+ {
+ #ifndef QT_MAC_USE_COCOA
+     if(pixmap.isNull()) {

@@ -1,0 +1,22 @@
+img.logo {
+	position: absolute;
+	top: 0;
+	left: 5%;
+	margin-top:18px;
+}
+#header h1
+{
+	border-bottom:0 none;
+	font-size:3em;
+	margin-bottom:25px;
+	margin-left:76px;
+	margin-top:0.6em;
+}
+body {
+	font-size:11pt;
+}
+
+div.sideBySide table {
+	float: left;
+	margin-right: 3em;
+}

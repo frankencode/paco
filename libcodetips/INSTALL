@@ -1,0 +1,19 @@
+CMake is our build tool.
+For more details see www.cmake.org.
+
+Quick instructions:
+
+1) Get and build libftl as static lib
+
+$ git clone https://unclefrank@github.com/unclefrank/libftl.git libftl
+$ cd libftl; git checkout codetips-0.0.1
+# go through INSTALL file of FTL
+
+2) Build libcodetips using the static libftl
+
+$ mkdir <my-build-dir>
+$ cd my-build-dir
+$ ccmake -D BUILD_SHARED_LIBS=ON ../<libcodetips-source-dir>
+	# press c, enter "Release" in CMAKE_BUILD_TYPE, press c again, then g
+	# 
+$ make

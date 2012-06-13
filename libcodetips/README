@@ -1,0 +1,9 @@
+The codetips library provides generic extensibility to code editors in terms of productivity solutions
+like code insight, snippets, zen-coding and more. The first version supports codetips for haXe using
+libdl.
+
+The Pacu code editor is using libcodetips (commercially available from www.cyblogic.com).
+
+For building libcodetips you need libftl (github.com/unclefrank/libftl).
+
+If you need to know more, get in touch with frank@cyblogic.de .

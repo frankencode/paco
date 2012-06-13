@@ -1,0 +1,14 @@
+/*
+ * codetips -- wildcard header
+ *
+ * Copyright (c) 2010, Frank Mertens
+ *
+ * See ../COPYING for the license.
+ */
+#ifndef CODETIPS_CODETIPS
+#define CODETIPS_CODETIPS
+
+#include "codetips.hpp"
+#include "AssistantManager.hpp"
+
+#endif // CODETIPS_CODETIPS

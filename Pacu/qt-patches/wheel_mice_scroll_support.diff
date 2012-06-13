@@ -1,0 +1,35 @@
+commit 5afb26bcdc5144951281c11d077d0786185b95bd
+Author: Frank Mertens <frank@cyblogic.de>
+Date:   Wed Oct 13 16:05:40 2010 +0200
+
+    Wheel event for non-touch mice.
+
+diff --git a/src/gui/kernel/qcocoaview_mac.mm b/src/gui/kernel/qcocoaview_mac.mm
+index a552ce7..bcd93cf 100644
+--- a/src/gui/kernel/qcocoaview_mac.mm
++++ b/src/gui/kernel/qcocoaview_mac.mm
+@@ -891,10 +891,22 @@ static int qCocoaViewCount = 0;
+         deltaZ = [theEvent deviceDeltaZ] * pixelsToDegrees;
+     } else {
+         // carbonEventKind == kEventMouseWheelMoved
+-        // Remove acceleration, and use either -120 or 120 as delta:
++        /*// Remove acceleration, and use either -120 or 120 as delta:
+         deltaX = qBound(-120, int([theEvent deltaX] * 10000), 120);
+         deltaY = qBound(-120, int([theEvent deltaY] * 10000), 120);
+-        deltaZ = qBound(-120, int([theEvent deltaZ] * 10000), 120);
++        deltaZ = qBound(-120, int([theEvent deltaZ] * 10000), 120);*/
++        float dax = [theEvent deltaX] / 2.;
++        float day = [theEvent deltaY] / 2.;
++        float daz = [theEvent deltaZ] / 2.;
++        deltaX = int(dax);
++        deltaY = int(day);
++        deltaZ = int(daz);
++        if ((-1. < dax) && (dax < 1.)) deltaX = (dax > 0) - (dax < 0);
++        if ((-1. < day) && (day < 1.)) deltaY = (day > 0) - (day < 0);
++        if ((-1. < dax) && (dax < 1.)) deltaZ = (daz > 0) - (daz < 0);
++        deltaX *= 8 * 15;
++        deltaY *= 8 * 15;
++        deltaZ *= 8 * 15;
+     }
+ 
+ #ifndef QT_NO_WHEELEVENT

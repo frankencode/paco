@@ -1,0 +1,38 @@
+Copyright (c) 2007-2010, Frank Mertens.
+
+All files you have received or will receive with the distribution package of
+the Software called "Pacu" are provided to you under the terms of this license
+Agreement between you and the Software's copyright holders as stated above.
+
+The Software is licensed, not sold. You acknowledge that no title to the
+intellectual property in the Software is transferred to you. You further
+acknowledge that title and full ownership rights to the Software will remain
+the exclusive property of its copyright holders.
+
+This Software is provided by the copyright holders "as is" and by express or
+implied warranties, including, but not limited to, the implied warranties or
+merchantability and fitness for particular purpose are disclaimed. In no event
+shall the copyright holders be liable for any direct, indirect, incidental,
+special, exemplary, or consequential damages (including, but not limited to,
+procurement of substitute goods or services; loss of use, data, or profits;
+or business interruption) however caused and on any theory of liability,
+whether in contract, strict liability, or tort (including negligence or otherwise)
+arising in any way out of the use of this software, even if advised of the
+possibility of such damage.
+
+The Agreement between you and the copyright holders constitutes this entire
+statement, and merges and supersedes all other or prior understandings, purchase
+orders, agreements and arrangements. This Agreement shall be governed by the
+laws of the European Union and the Federal Republic of Germany.
+
+You are granted special rights not reserved by the copyright statement above to the
+distribution and use of the Qt libraries as provided in the library subfolders
+"Frameworks/Qt*.frameworks" (OS X bundle) and "<architecture>/libQt*" (Linux bundle).
+The Qt libraries are given to you under the terms of the LGPL license version 2.1
+(http://www.cyblogic.com/LGPL2.txt). Thereby you are given additional rights to
+redistribute the affected libraries. The entire source code of the Qt libraries
+(including possible modifications) is available from git://cyblogic.com/qt.git.
+Please read http://www.cyblogic.com/git.txt, if you need to obtain a copy of
+the library source code.
+
+If you have further questions regarding our license terms, contact info@cyblogic.com .

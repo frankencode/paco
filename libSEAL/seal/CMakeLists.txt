@@ -1,0 +1,21 @@
+SET(SEAL_HEADER
+	Envelope.hpp
+	Activation.hpp
+	private.hpp
+	seal.h
+)
+
+SET(SEAL_SOURCE
+	Envelope.cpp
+	Activation.cpp
+	seal.cpp
+)
+
+ADD_LIBRARY(seal
+	${SEAL_HEADER}
+	${SEAL_SOURCE}
+)
+
+SET_TARGET_PROPERTIES(seal PROPERTIES VERSION 0.0.1 SOVERSION 0)
+
+INSTALL(TARGETS seal ARCHIVE DESTINATION lib LIBRARY DESTINATION lib)
